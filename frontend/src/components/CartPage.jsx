@@ -11,6 +11,14 @@ const CartPage = () => {
     navigate('/product'); // Navigate back to the ProductPage
   };
 
+  const calculateTotalPrice = () => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += parseFloat(item.price.replace('₱', '').replace(',', ''));
+    });
+    return total.toFixed(2);
+  };
+
   const handlePayment = () => {
     // Handle payment logic here
     console.log('Processing payment...');
@@ -25,13 +33,28 @@ const CartPage = () => {
         {cartItems.map((item, index) => (
           <div key={index} className="cart-item">
             <div className="item-box">
-              <img src={item.image} alt={`Product ${index + 1}`} className="cart-item-image" />
+              {/* Removed image */}
               <span>{item.name}</span>
+              <span>{item.price}</span>
             </div>
           </div>
         ))}
       </div>
-      <button onClick={handlePayment} className="btn btn-primary payment-button">Proceed to Payment</button>
+      <div className="large-box">
+        <h2>Cart Summary</h2>
+        <div className="summary-items">
+          {cartItems.map((item, index) => (
+            <div key={index} className="summary-item">
+              <span>{item.name}</span>
+              <span>{item.price}</span>
+            </div>
+          ))}
+        </div>
+        <div className="total-price-container">
+          <div className="total-price">Total: ₱{calculateTotalPrice()}</div>
+          <button onClick={handlePayment} className="btn btn-primary payment-button">Proceed to Payment</button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
-const UserModel = require('./models/User'); // Corrected import path
+const UserModel = require('./models/User');
+const PaymentModel = require('.models/Payment')
 
 const app = express();
 app.use(express.json());
