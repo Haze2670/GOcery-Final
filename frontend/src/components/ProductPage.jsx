@@ -30,6 +30,52 @@ const ProductPage = () => {
     'https://img.lazcdn.com/g/p/f73bbbb128c829b6ec77bf8776de243b.png_960x960q80.png_.webp'
   ];
 
+  const productNames = [
+    'Nestle Fresh Milk',
+    'Cowhead Straberry',
+    'Cowhead Chocolate',
+    'Lays original',
+    'Lays Salted',
+    'Lays Barbecue',
+    'Lays Cheese',
+    'Mango',
+    'Strawberries',
+    'Kiwis',
+    'Watermelon',
+    'Melon',
+    'Pineapple',
+    'Chicken Breasts',
+    'Chicken Wings',
+    'Whole Chicken',
+    'Steak',
+    'Coca cola ',
+    'Sprite',
+    'Royal'
+  ];
+
+  const prices = [
+    '₱115',
+    '₱125',
+    '₱125',
+    '₱123',
+    '₱150',
+    '₱150',
+    '₱150',
+    '₱40',
+    '₱100',
+    '₱88',
+    '₱280',
+    '₱200',
+    '₱150',
+    '₱388',
+    '₱400',
+    '₱600',
+    '₱1,120',
+    '₱80',
+    '₱70',
+    '₱100'
+  ];
+
   const handleBack = () => {
     navigate('/home');
   };
@@ -38,8 +84,8 @@ const ProductPage = () => {
     navigate('/cart', { state: { cartItems } });
   };
 
-  const addToCart = (itemName, imageUrl) => {
-    setCartItems([...cartItems, { name: itemName, image: imageUrl }]);
+  const addToCart = (itemName, imageUrl, price) => {
+    setCartItems([...cartItems, { name: itemName, image: imageUrl, price: price }]);
   };
 
   return (
@@ -50,14 +96,16 @@ const ProductPage = () => {
           Cart ({cartItems.length})
         </button>
       </div>
-      <div className="green-line"></div> {/* Add the green line here */}
+      <div className="green-line"></div> 
       <div className="product-grid">
         {images.map((imageUrl, index) => (
           <div key={index} className="product-box">
-            <img src={imageUrl} alt={`Product ${index + 1}`} className="product-image" />
-            <button className="btn btn-primary add-to-cart" onClick={() => addToCart(`Product ${index + 1}`, imageUrl)}>
+            <img src={imageUrl} alt={`Product ${index + 1}`} className={index === 0 ? "product-image-small" : "product-image"} />
+            <button className="btn btn-primary add-to-cart" onClick={() => addToCart(productNames[index], imageUrl, prices[index])}>
               Add to Cart
             </button>
+            <p className="product-name">{productNames[index]}</p>
+            <p className="product-price">{prices[index]}</p>
           </div>
         ))}
       </div>
