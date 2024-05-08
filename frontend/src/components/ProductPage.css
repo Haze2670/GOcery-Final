@@ -81,3 +81,20 @@
 .cart-button {
     right: 10px; /* Position the cart button on the upper right corner */
 }
+
+.product-image-small {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure images cover the area without stretching */
+}
+
+.product-name {
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  right: 10px;
+  text-align: center;
+  color: #fff; /* Adjust text color as needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 5px; /* Adjust padding as needed */
+}
