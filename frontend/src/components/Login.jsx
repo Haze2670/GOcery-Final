@@ -32,7 +32,6 @@ const Login = () => {
 
     return (
         <div className = "login-container">
-            
             <div className="d-flex justify-content-center align-items-center text-center vh-90 rounded" style= {{width: '50%', backgroundColor : "white"}}>
                 <div className="bg-white p-3 rounded" style={{width : '100%', borderRadius: '15px'}}>
                     <h2 className='mb-3 text-primary'>Login</h2>
