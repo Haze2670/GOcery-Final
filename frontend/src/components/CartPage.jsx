@@ -52,7 +52,7 @@ const CartPage = () => {
 
   return (
     <div className="cart-page">
-      <div className="page-header">
+      <div style={{backgroundColor: "#00b106"}} className="page-header">
         <button onClick={handleBack} className="btn btn-light back-button">Back</button>
       </div>
       <div className="cart-items-container">

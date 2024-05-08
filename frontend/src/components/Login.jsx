@@ -1,8 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Login.css';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const Login = () => {
     const [email, setEmail] = useState();
@@ -29,9 +31,9 @@ const Login = () => {
 
 
     return (
-        <div>
-            <div className="d-flex justify-content-center align-items-center text-center vh-100" style= {{backgroundColor : "#7FFF00"}}>
-                <div className="bg-white p-3 rounded" style={{width : '40%'}}>
+        <div className = "login-container">
+            <div className="d-flex justify-content-center align-items-center text-center vh-90 rounded" style= {{width: '50%', backgroundColor : "white"}}>
+                <div className="bg-white p-3 rounded" style={{width : '100%', borderRadius: '15px'}}>
                     <h2 className='mb-3 text-primary'>Login</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3 text-start">

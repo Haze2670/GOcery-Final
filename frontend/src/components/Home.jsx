@@ -5,7 +5,7 @@ const Home = () => {
  return (
     <div style={{backgroundImage : "none", backgroundColor: 'white'}} className="d-flex flex-column justify-content-center align-items-center text-center vh-100">
         {/* Light Green Line */}
-        <div style={{ position: 'absolute', top: '3px', left: '0', right: '0', height: '55px', backgroundColor: '#7FFF00' }}></div>
+        <div style={{ position: 'absolute', top: '3px', left: '0', right: '0', height: '55px', backgroundColor: '#00b106' }}></div>
         {/* About and Product links in the upper middle */}
         <div style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, -50%)', display: 'flex', gap: '10px', justifyContent: 'center' }}>
             <Link to='/product' className="btn btn-primary btn-sm" style={{backgroundColor: 'white', color: 'black'}}>Product</Link>
