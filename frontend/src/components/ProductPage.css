@@ -101,4 +101,5 @@
   color: #fff; /* Adjust text color as needed */
   background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
   padding: 5px; /* Adjust padding as needed */
+  border-radius: 5px; 
 }

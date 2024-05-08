@@ -1,31 +1,10 @@
 /* styles.css */
 .cart-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.page-header {
-  width: 100%;
-  padding: 10px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  z-index: 1000;
-}
-
-.back-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+  display: grid;
+  place-items: center;
+  height: 100vh; 
+  width: 100vw; 
+ }
 
 .cart-items-container {
   display: flex;
@@ -34,53 +13,43 @@
   margin-top: 50px;
 }
 
-/* styles.css */
 .cart-item {
   margin: 10px;
-  width: calc(100% / 5 - 20px); /* Adjust based on your grid layout */
-  /* For example, if you want 5 items per row */
+  width: calc(100% / 5 - 20px); 
 }
-
 
 .item-box {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   border: 1px solid #ccc;
   padding: 10px;
   width: 200px;
-  height: 250px; /* Adjusted height */
-  overflow: hidden; /* To ensure the image doesn't overflow */
+  height: 250px; 
+  overflow: hidden; 
 }
 
 .cart-item-image {
-  width: 100px; /* Adjusted width */
-  height: 100px; /* Adjusted height */
+  width: 100px; 
+  height: 100px; 
   object-fit: cover;
   margin-bottom: 10px;
+  align-items: right;
 }
 
 .payment-button {
-  margin-top: 20px;
-  background-color: gray;
-}
-
-.payment-button:hover {
-  background-color:green;
-}
-
-.custom-payment-button {
-  background-color: gray; /* Example color */
-  color: white; /* Text color */
+  background-color: gray; 
+  color: white; 
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  transition: background-color 0.3s ease; 
+  width: 100px;
  }
  
- .custom-payment-button:hover {
-  background-color: green; /* Darker shade for hover effect */
+ .payment-button:hover {
+  background-color: green;
  }
 
 .large-box {
@@ -92,3 +61,41 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* CartPage.css */
+.summary-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 20px;
+ }
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 6000%; 
+ }
+
+ .summary-item .item-details {
+  display: flex;
+  align-items: left;
+ }
+ 
+ .summary-item .item-image {
+  margin-left: 100px;
+ }
+ 
+ .summary-item hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+ }
+
+ .large-box {
+  width: 80%; /* Adjust the width as needed */
+  max-width: 800px; /* Adjust the maximum width as needed */
+  text-align: center; /* Center text within the box */
+ }
