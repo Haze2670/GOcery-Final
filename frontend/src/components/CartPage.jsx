@@ -20,9 +20,35 @@ const CartPage = () => {
   };
 
   const handlePayment = () => {
-    // Handle payment logic here
-    console.log('Processing payment...');
-  };
+    // Prepare payment details
+    const paymentDetails = {
+       products: cartItems.map(item => ({
+         name: item.name,
+         price: parseFloat(item.price.replace('₱', '').replace(',', '')),
+         description: item.description // Assuming each item has a 'description' property
+       })),
+       totalPrice: calculateTotalPrice(),
+       description: "Payment for cart items" // You can customize this as needed
+    };
+   
+    // Send payment details to the backend
+    fetch('http://localhost:3001/payment', {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify(paymentDetails),
+    })
+    .then(response => response.json())
+    .then(data => {
+       console.log('Payment processed successfully:', data);
+       // Optionally, navigate to a success page or show a success message
+    })
+    .catch((error) => {
+       console.error('Error processing payment:', error);
+       // Optionally, show an error message to the user
+    });
+};
 
   return (
     <div className="cart-page">
