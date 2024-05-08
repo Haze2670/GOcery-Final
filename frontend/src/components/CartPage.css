@@ -62,7 +62,26 @@
 
 .payment-button {
   margin-top: 20px;
+  background-color: gray;
 }
+
+.payment-button:hover {
+  background-color:green;
+}
+
+.custom-payment-button {
+  background-color: gray; /* Example color */
+  color: white; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+ }
+ 
+ .custom-payment-button:hover {
+  background-color: green; /* Darker shade for hover effect */
+ }
 
 .large-box {
   margin-top: 20px;
@@ -73,4 +92,3 @@
   flex-direction: column;
   align-items: center;
 }
-

@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const UserModel = require('./models/User');
-const PaymentModel = require('.models/Payment')
+// const PaymentModel = require('.models/Payment')
 
 const app = express();
 app.use(express.json());
@@ -50,7 +50,7 @@ app.post('/login', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server listening on http://127.0.0.1:${PORT}`);
 });
