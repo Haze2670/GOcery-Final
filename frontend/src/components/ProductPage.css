@@ -8,9 +8,9 @@
 
 .page-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between elements */
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Adjust the gap between elements */
     padding: 25px;
     width: 100%; /* Ensure the header spans the full width */
     position: fixed; /* Fixed positioning */
@@ -20,6 +20,7 @@
     background-color: #7FFF00; /* Background color to cover the content below */
     z-index: 1000; /* High z-index to ensure it's above other content */
     border-bottom: 2px solid lightgreen; /* Light green line at the top */
+    height: 60px;
 }
 
 .product-grid {
@@ -80,6 +81,7 @@
 
 .back-button {
     left: 10px; /* Position the back button on the upper left corner */
+    background-color: green;
 }
 
 .cart-button {

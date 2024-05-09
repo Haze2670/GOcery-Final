@@ -100,13 +100,12 @@ const ProductPage = () => {
   return (
     <div className="product-page">
       <div style={{ backgroundColor: '#00b106', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} className="page-header">
-        <button onClick={handleBack} className="btn btn-light back-button no-border">Back</button>
-        <input
+        <button styles={{backgroundColor: 'green'}} onClick={handleBack} className="btn btn-light back-button no-border">Back</button>
+        <input style={{paddingLeft: '80px'}}
           type="text"
           placeholder="Search product..."
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
-          // removed className="search-input"
         />
         <button onClick={() => navigate('/cart', { state: { cartItems } })} className="btn btn-light cart-button no-border">Cart ({cartItems.length})
         </button>
@@ -116,16 +115,16 @@ const ProductPage = () => {
         {filteredProducts.map((productName, index) => (
           <div key={index} className="product-box">
             <img src={images[productNames.indexOf(productName)]} alt={`Product ${index + 1}`} className={index === 0 ? "product-image-small" : "product-image"} />
-            <button style={{ width: '100px' }} className="btn btn-primary add-to-cart" onClick={() => addToCart(productName, images[productNames.indexOf(productName)], prices[productNames.indexOf(productName)])}>
+            <button style={{ width: '180px' }} className="btn btn-primary add-to-cart" onClick={() => addToCart(productName, images[productNames.indexOf(productName)], prices[productNames.indexOf(productName)])}>
               Add to Cart
             </button>
             <div className="product-details">
               <p className="product-name">{productName}</p>
-              {cartItems.find(item => item.name === productName) && (
+             {/* {cartItems.find(item => item.name === productName) && (
                 <button style={{ width: '100px' }} className="btn btn-danger cancel-button" onClick={() => addToCart(productName, images[productNames.indexOf(productName)], prices[productNames.indexOf(productName)])}>
                   Cancel
                 </button>
-              )}
+              )} */}
             </div>
             <p className="product-price">{prices[productNames.indexOf(productName)]}</p>
           </div>
