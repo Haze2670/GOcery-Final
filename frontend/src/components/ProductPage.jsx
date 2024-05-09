@@ -1,4 +1,3 @@
-// ProductPage.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProductPage.css';
@@ -6,6 +5,7 @@ import './ProductPage.css';
 const ProductPage = () => {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const images = [
     'https://www.nestleprofessional.ph/sites/default/files/styles/np_product_detail/public/2023-01/NESTL%C3%89%C2%AE%20Fresh%20Milk%201L.png?itok=L6Ey2VqZ',
@@ -80,31 +80,54 @@ const ProductPage = () => {
     navigate('/home');
   };
 
-  const handleCart = () => {
-    navigate('/cart', { state: { cartItems } });
+  const addToCart = (itemName, imageUrl, price) => {
+    const itemIndex = cartItems.findIndex(item => item.name === itemName);
+    if (itemIndex === -1) {
+      // Item not in cart, add it
+      setCartItems([...cartItems, { name: itemName, image: imageUrl, price: price }]);
+    } else {
+      // Item already in cart, remove it
+      const newCartItems = [...cartItems];
+      newCartItems.splice(itemIndex, 1);
+      setCartItems(newCartItems);
+    }
   };
 
-  const addToCart = (itemName, imageUrl, price) => {
-    setCartItems([...cartItems, { name: itemName, image: imageUrl, price: price }]);
-  };
+  const filteredProducts = productNames.filter(item =>
+    item.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="product-page">
-    <div style={{backgroundColor: '#00b106', }} className="page-header">
+      <div style={{ backgroundColor: '#00b106', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} className="page-header">
         <button onClick={handleBack} className="btn btn-light back-button no-border">Back</button>
-        <button onClick={handleCart} className="btn btn-light cart-button no-border">Cart ({cartItems.length})
+        <input
+          type="text"
+          placeholder="Search product..."
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+          // removed className="search-input"
+        />
+        <button onClick={() => navigate('/cart', { state: { cartItems } })} className="btn btn-light cart-button no-border">Cart ({cartItems.length})
         </button>
-    </div>
-      <div className="green-line"></div> 
+      </div>
+      <div className="green-line"></div>
       <div className="product-grid">
-        {images.map((imageUrl, index) => (
+        {filteredProducts.map((productName, index) => (
           <div key={index} className="product-box">
-            <img src={imageUrl} alt={`Product ${index + 1}`} className={index === 0 ? "product-image-small" : "product-image"} />
-            <button styels={{width: '200px'}} className="btn btn-primary add-to-cart" onClick={() => addToCart(productNames[index], imageUrl, prices[index])}>
+            <img src={images[productNames.indexOf(productName)]} alt={`Product ${index + 1}`} className={index === 0 ? "product-image-small" : "product-image"} />
+            <button style={{ width: '100px' }} className="btn btn-primary add-to-cart" onClick={() => addToCart(productName, images[productNames.indexOf(productName)], prices[productNames.indexOf(productName)])}>
               Add to Cart
             </button>
-            <p className="product-name">{productNames[index]}</p>
-            <p className="product-price">{prices[index]}</p>
+            <div className="product-details">
+              <p className="product-name">{productName}</p>
+              {cartItems.find(item => item.name === productName) && (
+                <button style={{ width: '100px' }} className="btn btn-danger cancel-button" onClick={() => addToCart(productName, images[productNames.indexOf(productName)], prices[productNames.indexOf(productName)])}>
+                  Cancel
+                </button>
+              )}
+            </div>
+            <p className="product-price">{prices[productNames.indexOf(productName)]}</p>
           </div>
         ))}
       </div>

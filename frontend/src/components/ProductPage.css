@@ -103,3 +103,32 @@
   padding: 5px; /* Adjust padding as needed */
   border-radius: 5px; 
 }
+
+.page-header {
+    display: flex;
+    justify-content: center; /* Center-align the elements */
+    align-items: center;
+    padding: 25px;
+    width: 100%; /* Ensure the header spans the full width */
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    background-color: #7FFF00; /* Background color to cover the content below */
+    z-index: 1000; /* High z-index to ensure it's above other content */
+    border-bottom: 2px solid lightgreen; /* Light green line at the top */
+}
+
+.search-input {
+    flex: 1; /* Take up remaining space */
+    margin: 0 auto; /* Center the search input horizontally */
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px; /* Adjust the gap between images as needed */
+    width: 100%; /* Ensure the grid spans the full width */
+    margin-top: 150px; /* Adjust based on the height of your header */
+}

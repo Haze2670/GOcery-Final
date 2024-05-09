@@ -6,6 +6,7 @@ import Register from './Register';
 import ProductPage from './ProductPage'; // Ensure this import path is correct
 import About from './About';
 import CartPage from './CartPage';
+import Payment from './Payment';
 
 
 function App() {
@@ -17,9 +18,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/product" element={<ProductPage />} /> {/* Route for ProductPage */}
+          <Route path="/product" element={<ProductPage />} /> 
           <Route path="/about" element={<About />} />
-          <Route path="/cart" element={<CartPage cartItems={[]} />} /> {/* Pass cartItems prop to CartPage */}
+          <Route path="/cart" element={<CartPage cartItems={[]} />} /> 
+          <Route path="/payment" element={<Payment />} /> 
         </Routes>
       </Router>
     </div>

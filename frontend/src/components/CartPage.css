@@ -1,5 +1,3 @@
-/* styles.css */
-
 .cart-page {
   display: flex;
   flex-direction: column;
@@ -108,3 +106,12 @@
   align-items: center; /* Center horizontally */
 }
 
+.cancel-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 5px;
+}
