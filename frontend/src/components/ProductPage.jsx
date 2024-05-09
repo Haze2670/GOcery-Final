@@ -90,18 +90,17 @@ const ProductPage = () => {
 
   return (
     <div className="product-page">
-      <div style={{backgroundColor: '#00b106'}} className="page-header">
-        <button onClick={handleBack} className="btn btn-light back-button">Back</button>
-        <button onClick={handleCart} className="btn btn-light cart-button">
-          Cart ({cartItems.length})
+    <div style={{backgroundColor: '#00b106', }} className="page-header">
+        <button onClick={handleBack} className="btn btn-light back-button no-border">Back</button>
+        <button onClick={handleCart} className="btn btn-light cart-button no-border">Cart ({cartItems.length})
         </button>
-      </div>
+    </div>
       <div className="green-line"></div> 
       <div className="product-grid">
         {images.map((imageUrl, index) => (
           <div key={index} className="product-box">
             <img src={imageUrl} alt={`Product ${index + 1}`} className={index === 0 ? "product-image-small" : "product-image"} />
-            <button className="btn btn-primary add-to-cart" onClick={() => addToCart(productNames[index], imageUrl, prices[index])}>
+            <button styels={{width: '200px'}} className="btn btn-primary add-to-cart" onClick={() => addToCart(productNames[index], imageUrl, prices[index])}>
               Add to Cart
             </button>
             <p className="product-name">{productNames[index]}</p>
