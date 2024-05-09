@@ -67,7 +67,7 @@ const CartPage = () => {
       <div style={{ backgroundColor: "#00b106" }} className="page-header">
         <button onClick={handleBack} className="btn btn-light back-button">Back</button>
       </div>
-      <div className="large-box">
+      <div styles={{width:'500px'}} className="large-box">
         <h2>Cart Summary</h2>
         <div className="summary-items">
           {cartItems.map((item, index) => (
